@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klub Lepsze Życie | Bezpieczeństwo i Rozwój</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .glass-effect { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.2); }
+        .gradient-bg { background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); }
+        .animate-float { animation: float 6s ease-in-out infinite; }
+        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-20px); } 100% { transform: translateY(0px); } }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 antialiased">
+
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center gap-2">
+                    <div class="bg-blue-600 p-2 rounded-lg text-white"><i class="fas fa-shield-halved text-xl"></i></div>
+                    <span class="font-extrabold text-xl tracking-tight text-slate-900 uppercase">Klub Lepsze Życie</span>
+                </div>
+                <div class="hidden md:block">
+                    <a href="#formularz" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-bold transition-all transform hover:scale-105 shadow-lg shadow-blue-200">Odbierz E-booka</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden gradient-bg text-white text-left">
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 px-4 py-2 rounded-full text-blue-200 text-sm font-semibold mb-8">
+                        <span class="flex h-2 w-2 rounded-full bg-blue-400"></span>Ochrona Kapitału i Nowoczesna Wiedza
+                    </div>
+                    <h1 class="text-5xl md:text-7xl font-extrabold leading-[1.1] mb-8">Projekty dochodowe<br>z ochroną<span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400"> twojego wkładu</span></h1>
+                    <p class="text-xl text-slate-300 mb-10 leading-relaxed max-w-xl">Pierwszy w Polsce projekt łączący profesjonalne zarabianie z gwarancją ochrony wkładu własnego przez Radę Klubu.</p>
+                    <div class="flex flex-col sm:flex-row gap-4 items-center sm:items-start">
+                        <a href="#formularz" class="bg-emerald-500 hover:bg-emerald-400 text-slate-900 px-10 py-5 rounded-2xl font-extrabold text-lg transition-all flex items-center justify-center gap-3">Zacznij tutaj <i class="fas fa-arrow-right"></i></a>
+                        <div class="flex items-center gap-3 px-4 py-2">
+                            <div class="flex -space-x-3">
+                                <img src="https://i.pravatar.cc/150?u=1" class="w-10 h-10 rounded-full border-2 border-slate-900">
+                                <img src="https://i.pravatar.cc/150?u=2" class="w-10 h-10 rounded-full border-2 border-slate-900">
+                                <img src="https://i.pravatar.cc/150?u=3" class="w-10 h-10 rounded-full border-2 border-slate-900">
+                            </div>
+                            <span class="text-sm text-slate-400 font-medium">+1,200 członków</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative hidden lg:block">
+                    <div class="animate-float glass-effect p-8 rounded-[40px] relative z-20">
+                        <div class="flex justify-between items-start mb-12">
+                            <div><h3 class="text-2xl font-bold mb-1 text-white">Gwarancja 100%</h3><p class="text-slate-400 text-sm text-left">Ochrona wkładu własnego</p></div>
+                            <i class="fas fa-shield-check text-4xl text-emerald-400"></i>
+                        </div>
+                        <div class="space-y-6">
+                            <div class="bg-white/5 p-4 rounded-2xl flex items-center gap-4 text-left">
+                                <div class="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center text-blue-400"><i class="fas fa-chart-line"></i></div>
+                                <div><div class="text-sm font-bold text-white">Model Inwestycyjny</div><div class="text-xs text-slate-400">Zweryfikowany przez ekspertów</div></div>
+                            </div>
+                            <div class="bg-white/5 p-4 rounded-2xl flex items-center gap-4 text-left">
+                                <div class="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center text-purple-400"><i class="fas fa-brain"></i></div>
+                                <div><div class="text-sm font-bold text-white">Wiedza AI</div><div class="text-xs text-slate-400">Praktyczne zastosowania</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="formularz" class="py-24 bg-slate-900 relative">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="bg-gradient-to-r from-blue-600 to-blue-800 rounded-[40px] overflow-hidden shadow-2xl">
+                <div class="grid lg:grid-cols-2">
+                    <div class="p-12 md:p-20 text-white text-left">
+                        <h2 class="text-4xl font-extrabold mb-8">Otrzymaj bezpłatny E-book</h2>
+                        <p class="text-xl text-blue-100 mb-10 italic">"Jak nie stracić kasy i przechytrzyć oszustów"</p>
+                        <ul class="space-y-6">
+                            <li class="flex items-center gap-4 text-left"><i class="fas fa-check bg-white/20 p-1 rounded-full text-xs"></i> Jak rozpoznawać "cudowne okazje"</li>
+                            <li class="flex items-center gap-4 text-left"><i class="fas fa-check bg-white/20 p-1 rounded-full text-xs"></i> Techniki manipulacji naciągaczy</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-12 md:p-20 text-left">
+                        <div id="mlb2-178874118696862843" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-178874118696862843">
+                            <div class="ml-form-embedWrapper embedForm">
+                                <form class="ml-block-form space-y-6" action="https://assets.mailerlite.com/jsonp/1301043/forms/178874118696862843/subscribe" data-code="178874118696862843" method="post">
+                                    <h3 class="text-2xl font-bold text-slate-900 mb-8 text-left">Zostaw e-mail, aby otrzymać E-booka</h3>
+                                    <div>
+                                        <label class="block text-sm font-bold text-slate-700 mb-2 uppercase text-left">Imię</label>
+                                        <input type="text" name="fields[name]" required placeholder="Twoje imię" class="w-full px-6 py-4 rounded-xl border-2 border-slate-100 focus:border-blue-500 outline-none">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-bold text-slate-700 mb-2 uppercase text-left">E-mail</label>
+                                        <input type="email" name="fields[email]" required placeholder="adres@email.pl" class="w-full px-6 py-4 rounded-xl border-2 border-slate-100 focus:border-blue-500 outline-none">
+                                    </div>
+                                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-5 rounded-2xl shadow-xl transition-all">Chcę odebrać darmową wiedzę <i class="fas fa-download ml-2"></i></button>
+                                </form>
+                                <div class="ml-form-successBody row-success" style="display:none">
+                                    <div class="ml-form-successContent text-center py-10">
+                                        <div class="w-20 h-20 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6"><i class="fas fa-check text-3xl"></i></div>
+                                        <h4 class="text-2xl font-bold text-slate-900 mb-2 text-center">Dziękujemy!</h4>
+                                        <p class="text-slate-600 text-center">E-book został wysłany. Sprawdź e-mail!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+        .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+        n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+        (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+        ml('account', '1301043');
+    </script>
+</body>
+</html>
