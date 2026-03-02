@@ -230,32 +230,20 @@
     </div>
 </div>
 
-                    <form action="https://assets.mailerlite.com/jsonp/2099361/forms/180709456999351505/subscribe" method="post" class="space-y-6">
+                   <form id="webinar-form" action="https://assets.mailerlite.com/jsonp/2099361/forms/180709456999351505/subscribe" method="post" class="space-y-6">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
         <div class="flex flex-col text-left">
             <label for="name" class="text-[10px] uppercase text-brand-gold font-bold tracking-widest mb-2 ml-1">Twoje imię:</label>
-            <input type="text" 
-                   id="name"
-                   name="fields[name]"
-                   placeholder="" 
-                   required
-                   class="w-full bg-black/40 border border-brand-gold/30 rounded-xl px-4 py-4 text-white placeholder-white/20 focus:outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold/50 transition-all">
+            <input type="text" id="name" name="fields[name]" required class="w-full bg-black/40 border border-brand-gold/30 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-brand-gold">
         </div>
-
         <div class="flex flex-col text-left">
             <label for="email" class="text-[10px] uppercase text-brand-gold font-bold tracking-widest mb-2 ml-1">Twój adres e-mail:</label>
-            <input type="email" 
-                   id="email"
-                   name="fields[email]"
-                   placeholder="" 
-                   required
-                   class="w-full bg-black/40 border border-brand-gold/30 rounded-xl px-4 py-4 text-white placeholder-white/20 focus:outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold/50 transition-all">
+            <input type="email" id="email" name="fields[email]" required class="w-full bg-black/40 border border-brand-gold/30 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-brand-gold">
         </div>
     </div>
-
     <div class="flex items-start gap-3 mt-6 max-w-md mx-auto">
-    <input type="checkbox" required id="consent" class="mt-1 shrink-0 accent-brand-gold">
-    <label for="consent" class="text-[10px] md:text-xs text-gray-400 leading-tight cursor-pointer text-left">
+        <input type="checkbox" required id="consent" class="mt-1 shrink-0 accent-brand-gold">
+        <label for="consent" class="text-[10px] md:text-xs text-gray-400 leading-tight cursor-pointer text-left">
         Wyrażam zgodę na otrzymanie informacji o projekcie "Klub Lepsze Życie" na podany przeze mnie adres e-mail.
     </label>
 </div>
@@ -364,11 +352,30 @@ Inwestowanie wiąże się z ryzykiem rynkowym. Zasady ochrony wkładu własnego 
 
 setInterval(updateTimer, 1000);
 updateTimer();
+document.getElementById('webinar-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const form = this;
+    const formData = new FormData(form);
+    const url = form.action;
 
+    
+    fetch(url, {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors' 
+    }).then(() => {
+        
+        window.location.href = 'podziekowanie.html';
+    }).catch(() => {
+        
+        window.location.href = 'podziekowanie.html';
+    });
+});
         </script>
 </body>
 
 </html>
+
 
 
 
