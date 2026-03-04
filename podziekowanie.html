@@ -83,7 +83,7 @@
             <div class="flex items-start gap-4 text-left">
                 <span class="bg-brand-gold text-brand-dark rounded-full w-6 h-6 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">2</span>
                 <p class="text-sm leading-relaxed text-gray-200">
-                    <strong class="text-white">Link do webinaru otrzymasz mailowo na 30 minut przed startem.</strong>
+                    <strong class="text-white">Dostęp do webinaru otrzymasz mailowo na 30 minut przed startem.</strong>
                 </p>
             </div>
 
@@ -146,7 +146,7 @@
             const endISO = new Date(target.getTime() + (60 * 60 * 1000)).toISOString().replace(/-|:|\.\d+/g, "");
             
             const title = encodeURIComponent("Webinar: Klub Lepsze Życie");
-            const details = encodeURIComponent("Link do spotkania otrzymasz w osobnej wiadomości na 30 min przed startem.");
+            const details = encodeURIComponent("Dostęp do webinaru otrzymasz w osobnej wiadomości na 30 min przed startem.");
             
             btn.href = `https://www.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startISO}/${endISO}&details=${details}`;
         }
@@ -179,6 +179,7 @@
 </body>
 
 </html>
+
 
 
 
