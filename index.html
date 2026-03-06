@@ -230,7 +230,7 @@
     </div>
 </div>
 
-                   <form id="webinar-form" action="https://assets.mailerlite.com/jsonp/2099361/forms/180709456999351505/subscribe" method="post" class="space-y-6">
+                   <form id="webinar-form" class="space-y-6">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
         <div class="flex flex-col text-left">
             <label for="name" class="text-[10px] uppercase text-brand-gold font-bold tracking-widest mb-2 ml-1">Twoje imię:</label>
@@ -352,29 +352,35 @@ Inwestowanie wiąże się z ryzykiem rynkowym. Zasady ochrony wkładu własnego 
 
 setInterval(updateTimer, 1000);
 updateTimer();
-document.getElementById('webinar-form').addEventListener('submit', function(e) {
+document.getElementById('webinar-form').addEventListener('submit', async function(e) {
     e.preventDefault();
-    const form = this;
-    const formData = new FormData(form);
-    const url = form.action;
-
     
-    fetch(url, {
-        method: 'POST',
-        body: formData,
-        mode: 'no-cors' 
-    }).then(() => {
-        
-        window.location.href = 'podziekowanie.html';
-    }).catch(() => {
-        
-        window.location.href = 'podziekowanie.html';
-    });
+    // TUTAJ WKLEJ ADRES URL SKOPIOWANY Z MAKE
+    const webhookUrl = 'https://hook.eu1.make.com/2mxbvkkgvg4tog3tu2mhl26xwnxiafww'; 
+    
+    const formData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value
+    };
+
+    try {
+        const response = await fetch(webhookUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+        });
+
+        if (response.ok) {
+            window.location.href = 'podziekowanie.html?name=' + encodeURIComponent(formData.name);
+        }
+    } catch (error) {
+        alert('Wystąpił błąd.');
+    }
 });
-        </script>
 </body>
 
 </html>
+
 
 
 
