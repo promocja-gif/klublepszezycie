@@ -353,27 +353,28 @@ Inwestowanie wiąże się z ryzykiem rynkowym. Zasady ochrony wkładu własnego 
 setInterval(updateTimer, 1000);
 updateTimer();
 document.getElementById('webinar-form').addEventListener('submit', function(e) {
-    e.preventDefault(); 
-    
-    
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const webhookUrl = 'https://hook.eu1.make.com/2mxbvkkgvg4tog3tu2mhl26xwnxiafww'; 
+    e.preventDefault();
+    const form = this;
+    const formData = new FormData(form);
+    const url = form.action;
 
-    fetch(webhookUrl, {
+    
+    fetch(url, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: name, email: email })
+        body: formData,
+        mode: 'no-cors' 
     }).then(() => {
-        // Przekierowanie na stronę podziękowania z imieniem w URL
-        window.location.href = 'podziekowanie.html?name=' + encodeURIComponent(name);
-    }).catch(error => {
-        alert('Wystąpił błąd podczas wysyłania. Spróbuj ponownie.');
+        
+        window.location.href = 'podziekowanie.html';
+    }).catch(() => {
+        
+        window.location.href = 'podziekowanie.html';
     });
 });
 </body>
 
 </html>
+
 
 
 
