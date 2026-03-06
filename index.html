@@ -353,27 +353,35 @@ Inwestowanie wiąże się z ryzykiem rynkowym. Zasady ochrony wkładu własnego 
 setInterval(updateTimer, 1000);
 updateTimer();
 document.getElementById('webinar-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const form = this;
-    const formData = new FormData(form);
-    const url = form.action;
-
+    e.preventDefault(); 
     
-    fetch(url, {
+    // Pobranie danych z Twoich pól (upewnij się, że mają id="name" i id="email")
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+
+    // Wklej tutaj swój link z Make.com
+    const webhookUrl = 'TU_WKLEJ_LINK_Z_MAKE';
+
+    fetch(webhookUrl, {
         method: 'POST',
-        body: formData,
-        mode: 'no-cors' 
-    }).then(() => {
-        
-        window.location.href = 'podziekowanie.html';
-    }).catch(() => {
-        
-        window.location.href = 'podziekowanie.html';
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: name, email: email })
+    })
+    .then(response => {
+        // Niezależnie od odpowiedzi z Webhooka, przenosimy użytkownika
+        window.location.href = 'podziekowanie.html?name=' + encodeURIComponent(name);
+    })
+    .catch(error => {
+        console.error('Błąd:', error);
+        // Nawet w razie błędu przenosimy, żeby nie blokować użytkownika
+        window.location.href = 'podziekowanie.html?name=' + encodeURIComponent(name);
     });
 });
+        </script>
 </body>
 
 </html>
+
 
 
 
