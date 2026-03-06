@@ -354,25 +354,31 @@ setInterval(updateTimer, 1000);
 updateTimer();
 document.getElementById('webinar-form').addEventListener('submit', function(e) {
     e.preventDefault();
-    
-    // Pobierz dane
-    const data = {
+    const form = this;
+    const formData = {
         name: document.getElementById('name').value,
         email: document.getElementById('email').value
     };
 
-    // Wklej tutaj URL z Webhooka w Make.com
-    fetch('https://hook.eu1.make.com/2mxbvkkgvg4tog3tu2mhl26xwnxiafww', {
+    // Wklej tutaj adres Webhooka z Make.com
+    const webhookUrl = 'https://hook.eu1.make.com/2mxbvkkgvg4tog3tu2mhl26xwnxiafww';
+
+    fetch(webhookUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-    }).then(() => {
-        window.location.href = 'podziekowanie.html';
-    });
+        body: JSON.stringify(formData)
+    }).then(response => {
+        if(response.ok) {
+            window.location.href = 'podziekowanie.html?name=' + encodeURIComponent(formData.name);
+        } else {
+            alert("Błąd wysyłki. Sprawdź konsolę (F12).");
+        }
+    }).catch(err => alert("Błąd połączenia: " + err));
 });
 </body>
 
 </html>
+
 
 
 
