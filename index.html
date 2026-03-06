@@ -353,31 +353,28 @@ Inwestowanie wiąże się z ryzykiem rynkowym. Zasady ochrony wkładu własnego 
 setInterval(updateTimer, 1000);
 updateTimer();
 document.getElementById('webinar-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const form = this;
-    const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value
-    };
-
-    // Wklej tutaj adres Webhooka z Make.com
-    const webhookUrl = 'https://hook.eu1.make.com/2mxbvkkgvg4tog3tu2mhl26xwnxiafww';
+    e.preventDefault(); 
+    
+    // Pobierz dane z pól formularza
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const webhookUrl = 'WKLEJ_TUTAJ_URL_Z_MAKE_COM'; // Wklej swój adres
 
     fetch(webhookUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
-    }).then(response => {
-        if(response.ok) {
-            window.location.href = 'podziekowanie.html?name=' + encodeURIComponent(formData.name);
-        } else {
-            alert("Błąd wysyłki. Sprawdź konsolę (F12).");
-        }
-    }).catch(err => alert("Błąd połączenia: " + err));
+        body: JSON.stringify({ name: name, email: email })
+    }).then(() => {
+        // Przekierowanie na stronę podziękowania z imieniem w URL
+        window.location.href = 'podziekowanie.html?name=' + encodeURIComponent(name);
+    }).catch(error => {
+        alert('Wystąpił błąd podczas wysyłania. Spróbuj ponownie.');
+    });
 });
 </body>
 
 </html>
+
 
 
 
