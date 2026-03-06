@@ -355,25 +355,26 @@ updateTimer();
 document.getElementById('webinar-form').addEventListener('submit', function(e) {
     e.preventDefault(); 
     
-    // Pobranie danych z Twoich pól (upewnij się, że mają id="name" i id="email")
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
 
-    // Wklej tutaj swój link z Make.com
-    const webhookUrl = 'https://hook.eu1.make.com/2mxbvkkgvg4tog3tu2mhl26xwnxiafww';
+    
+    const mlUrl = 'https://assets.mailerlite.com/jsonp/2166964/forms/181205362626528496/subscribe" data-code="" method="post" target="_blank'; 
 
-    fetch(webhookUrl, {
+    const formData = new FormData();
+    formData.append('fields[name]', name);
+    formData.append('fields[email]', email);
+
+    fetch(mlUrl, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: name, email: email })
+        body: formData,
+        mode: 'no-cors' 
     })
-    .then(response => {
-        // Niezależnie od odpowiedzi z Webhooka, przenosimy użytkownika
+    .then(() => {
+        
         window.location.href = 'podziekowanie.html?name=' + encodeURIComponent(name);
     })
-    .catch(error => {
-        console.error('Błąd:', error);
-        // Nawet w razie błędu przenosimy, żeby nie blokować użytkownika
+    .catch(() => {
         window.location.href = 'podziekowanie.html?name=' + encodeURIComponent(name);
     });
 });
@@ -381,6 +382,7 @@ document.getElementById('webinar-form').addEventListener('submit', function(e) {
 </body>
 
 </html>
+
 
 
 
