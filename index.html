@@ -230,7 +230,9 @@
     </div>
 </div>
 
-                   <form id="webinar-form" class="space-y-6">
+                   <form action="https://assets.mailerlite.com/jsonp/2166964/forms/181205362626528496/subscribe" 
+      method="post" 
+      class="space-y-6">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
         <div class="flex flex-col text-left">
             <label for="name" class="text-[10px] uppercase text-brand-gold font-bold tracking-widest mb-2 ml-1">Twoje imię:</label>
@@ -355,15 +357,11 @@ updateTimer();
 document.getElementById('webinar-form').addEventListener('submit', function(e) {
     e.preventDefault(); 
     
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-
+    const form = e.target;
+    const formData = new FormData(form);
     
-    const mlUrl = 'const mlUrl = "https://assets.mailerlite.com/jsonp/2166964/forms/181205362626528496/subscribe" data-code="" method="post" target="_blank'; 
-
-    const formData = new FormData();
-    formData.append('fields[name]', name);
-    formData.append('fields[email]', email);
+    
+    const mlUrl = 'https://assets.mailerlite.com/jsonp/2166964/forms/181205362626528496/subscribe'; 
 
     fetch(mlUrl, {
         method: 'POST',
@@ -371,17 +369,20 @@ document.getElementById('webinar-form').addEventListener('submit', function(e) {
         mode: 'no-cors' 
     })
     .then(() => {
-        
+        const name = document.getElementById('name').value;
         window.location.href = 'podziekowanie.html?name=' + encodeURIComponent(name);
     })
-    .catch(() => {
-        window.location.href = 'podziekowanie.html?name=' + encodeURIComponent(name);
+    .catch((error) => {
+        console.error('Błąd:', error);
+        
+        window.location.href = 'podziekowanie.html';
     });
 });
         </script>
 </body>
 
 </html>
+
 
 
 
