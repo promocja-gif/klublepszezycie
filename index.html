@@ -357,11 +357,15 @@ updateTimer();
 document.getElementById('webinar-form').addEventListener('submit', function(e) {
     e.preventDefault(); 
     
-    const form = e.target;
-    const formData = new FormData(form);
-    
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+
     
     const mlUrl = 'https://assets.mailerlite.com/jsonp/2166964/forms/181205362626528496/subscribe'; 
+
+    const formData = new FormData();
+    formData.append('fields[name]', name);
+    formData.append('fields[email]', email);
 
     fetch(mlUrl, {
         method: 'POST',
@@ -369,19 +373,19 @@ document.getElementById('webinar-form').addEventListener('submit', function(e) {
         mode: 'no-cors' 
     })
     .then(() => {
-        const name = document.getElementById('name').value;
+        
         window.location.href = 'podziekowanie.html?name=' + encodeURIComponent(name);
     })
     .catch((error) => {
         console.error('Błąd:', error);
-        
-        window.location.href = 'podziekowanie.html';
+        window.location.href = 'podziekowanie.html?name=' + encodeURIComponent(name);
     });
 });
         </script>
 </body>
 
 </html>
+
 
 
 
