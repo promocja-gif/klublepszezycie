@@ -352,14 +352,13 @@ Inwestowanie wiąże się z ryzykiem rynkowym. Zasady ochrony wkładu własnego 
 
 setInterval(updateTimer, 1000);
 updateTimer();
+<script>
 document.getElementById('webinar-form').addEventListener('submit', function(e) {
-    
-    e.preventDefault();
-    e.stopPropagation();
-    
+    e.preventDefault(); 
+
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
-
+    
     
     const mlUrl = 'https://assets.mailerlite.com/jsonp/2166964/forms/181205362626528496/subscribe'; 
 
@@ -367,28 +366,25 @@ document.getElementById('webinar-form').addEventListener('submit', function(e) {
     formData.append('fields[name]', name);
     formData.append('fields[email]', email);
 
-    // Wysyłamy dane w tle
     fetch(mlUrl, {
         method: 'POST',
         body: formData,
         mode: 'no-cors' 
     })
     .then(() => {
-        
+       
         window.location.href = 'podziekowanie.html?name=' + encodeURIComponent(name);
     })
-    .catch((err) => {
-        console.error('Błąd wysyłki:', err);
+    .catch(() => {
         
         window.location.href = 'podziekowanie.html?name=' + encodeURIComponent(name);
     });
-
-    return false; 
 });
-        </script>
+</script>
 </body>
 
 </html>
+
 
 
 
