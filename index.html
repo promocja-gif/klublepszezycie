@@ -230,9 +230,7 @@
     </div>
 </div>
 
-                   <form action="https://assets.mailerlite.com/jsonp/2166964/forms/181205362626528496/subscribe" 
-      method="post" 
-      class="space-y-6">
+                   <form id="webinar-form" class="space-y-6">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
         <div class="flex flex-col text-left">
             <label for="name" class="text-[10px] uppercase text-brand-gold font-bold tracking-widest mb-2 ml-1">Twoje imię:</label>
@@ -355,11 +353,12 @@ Inwestowanie wiąże się z ryzykiem rynkowym. Zasady ochrony wkładu własnego 
 setInterval(updateTimer, 1000);
 updateTimer();
 document.getElementById('webinar-form').addEventListener('submit', function(e) {
-    e.preventDefault(); 
+    
+    e.preventDefault();
+    e.stopPropagation();
     
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
-    const form = e.target;
 
     
     const mlUrl = 'https://assets.mailerlite.com/jsonp/2166964/forms/181205362626528496/subscribe'; 
@@ -368,6 +367,7 @@ document.getElementById('webinar-form').addEventListener('submit', function(e) {
     formData.append('fields[name]', name);
     formData.append('fields[email]', email);
 
+    // Wysyłamy dane w tle
     fetch(mlUrl, {
         method: 'POST',
         body: formData,
@@ -377,15 +377,19 @@ document.getElementById('webinar-form').addEventListener('submit', function(e) {
         
         window.location.href = 'podziekowanie.html?name=' + encodeURIComponent(name);
     })
-    .catch(() => {
+    .catch((err) => {
+        console.error('Błąd wysyłki:', err);
         
         window.location.href = 'podziekowanie.html?name=' + encodeURIComponent(name);
     });
+
+    return false; 
 });
         </script>
 </body>
 
 </html>
+
 
 
 
