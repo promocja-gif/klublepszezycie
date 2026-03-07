@@ -359,6 +359,7 @@ document.getElementById('webinar-form').addEventListener('submit', function(e) {
     
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
+    const form = e.target;
 
     
     const mlUrl = 'https://assets.mailerlite.com/jsonp/2166964/forms/181205362626528496/subscribe'; 
@@ -376,8 +377,8 @@ document.getElementById('webinar-form').addEventListener('submit', function(e) {
         
         window.location.href = 'podziekowanie.html?name=' + encodeURIComponent(name);
     })
-    .catch((error) => {
-        console.error('Błąd:', error);
+    .catch(() => {
+        
         window.location.href = 'podziekowanie.html?name=' + encodeURIComponent(name);
     });
 });
@@ -385,6 +386,7 @@ document.getElementById('webinar-form').addEventListener('submit', function(e) {
 </body>
 
 </html>
+
 
 
 
